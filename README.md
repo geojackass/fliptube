@@ -1,6 +1,6 @@
 # Fliptube
 
-Flip left and right when playing video for you to practice ballet and dance etc.
+Flip left and right when you are playing the video to practice ballet and dance etc.
 
 License
 =======
