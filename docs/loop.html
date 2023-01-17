@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>tubejackass</title>
+    <meta name="description" content="slow再生，repeat再生に対応しています．">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/faviconmark2.ico" />
+    <script type='text/javascript' src='https://code.jquery.com/jquery-2.0.0.min.js'></script>
+    <script type='text/javascript' src='youtube-flip.js'></script>
+    <script type='text/javascript' src='youtube-looper.js'></script>
+
+    <style type="text/css">
+      #url {
+        width: 700px;
+        font-size: 16px;
+      }
+
+      #log {
+        width: 860px;
+        height: 480px;
+        background: #bbbbc1;
+      }
+
+      #log iframe {
+        transform: scale(-1, 1);
+      }
+
+      #log p {
+        box-sizing: border-box;
+        width: 860px;
+        text-align: center;
+        padding-top: 200px;
+        color: #FFF;
+      }
+    </style>
+  </head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0Z8SE5JM18"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-0Z8SE5JM18');
+  </script>
+
+  <body>
+      <div id="wrap"><!--モニターのサイズはflip&loopともにここがROOT START-->
+          <div id="property">
+          <!--ここからlooper-->
+          <p>
+              <label for="youtube-video-url" id="youtube-video-url-l">ここにURLを記載してください：</label>
+              <input type="text" id="youtube-video-url" name="youtube-video-url" size="50" placeholder="https://www.youtube.com/watch?v=XeabyV6wqUU" onInput="setVideo()">
+          </p>
+          <p id="youtube-video-url-error" class="error"></p>
+
+          <div class="video-wrapper">
+              <div id="youtube-player" class="export-area">
+                  <p>ここに動画が表示されます。</p>
+              </div>
+          </div>
+
+          <p class="mb0">再生時間:</p>
+          <div class="time-button-wrapper button-wrapper">
+              <input type="button" value="-10s" onclick="seek(-10)">
+              <input type="button" value="-5s" onclick="seek(-5)">
+              <input type="button" value="-1s" onclick="seek(-1)">
+              <input type="button" value="+1s" onclick="seek(1)">
+              <input type="button" value="+5s" onclick="seek(5)">
+              <input type="button" value="+10s" onclick="seek(10)">
+          </div>
+          <hr>
+          <div>
+              <label for="youtube-video-start" id="youtube-video-start-l">開始時間: </label>
+              <input type="text" id="youtube-video-start" name="youtube-video-start" size="7" placeholder="0000">
+              <input type="button" id="youtube-video-set-start" name="youtube-video-set-start" size="4" value="Now" onclick="setStart()">
+          </div>
+          <p style="display:none;" id="youtube-video-start-error" class="error"></p>
+          <div>
+              <label for="youtube-video-end" id="youtube-video-end-l">終了時間: </label>
+              <input type="text" id="youtube-video-end" name="youtube-video-end" size="7" placeholder="0000">
+              <input type="button" id="youtube-video-set-end" name="youtube-video-set-end" size="4" value="Now" onclick="setEnd()">
+          </div>
+          <p style="display:none;" id="youtube-video-end-error" class="error"></p>
+          <!--<div>入力例: 00:09→0009</div>-->
+          <!--<p><input type="button" id="youtube-video-play" name="youtube-video-play" size="5" value="Play" onclick="run()"> <span class="dark-gray">iPhoneの場合、さらに動画の再生ボタン↓を押す必要があります。</span></p>-->
+          <hr>
+
+      <p class="mb0">再生速度:</p>
+      <div class="speed-button-wrapper button-wrapper">
+        <input type="radio" name="youtube-video-player-speed-button" id="youtube-video-player-speed-0.2" class="button" size="5" value="0.2x" onclick="setSpeed(0.2)"><label for="youtube-video-player-speed-0.2">0.2x</label>
+        <input type="radio" name="youtube-video-player-speed-button" id="youtube-video-player-speed-0.5" class="button" size="5" value="0.5x"><label for="youtube-video-player-speed-0.5" onclick="setSpeed(0.5)">0.5x</label>
+        <input type="radio" name="youtube-video-player-speed-button" id="youtube-video-player-speed-0.75" class="button" size="5" value="0.75x"><label for="youtube-video-player-speed-0.75" onclick="setSpeed(0.75)">0.75x</label>
+        <input type="radio" name="youtube-video-player-speed-button" id="youtube-video-player-speed-1.0" class="button" size="5" value="1.0x" checked><label for="youtube-video-player-speed-1.0" onclick="setSpeed(1)">1.0x</label>
+        <input type="radio" name="youtube-video-player-speed-button" id="youtube-video-player-speed-1.25" class="button" size="5" value="1.25x"><label for="youtube-video-player-speed-1.25" onclick="setSpeed(1.25)">1.25x</label>
+        <input type="radio" name="youtube-video-player-speed-button" id="youtube-video-player-speed-1.5" class="button" size="5" value="1.5x"><label for="youtube-video-player-speed-1.5" onclick="setSpeed(1.5)">1.5x</label>
+        <input type="radio" name="youtube-video-player-speed-button" id="youtube-video-player-speed-1.75" class="button" size="5" value="1.75x"><label for="youtube-video-player-speed-1.75" onclick="setSpeed(1.75)">1.75x</label>
+        <input type="radio" name="youtube-video-player-speed-button" id="youtube-video-player-speed-2.0" class="button" size="5" value="2.0x"><label for="youtube-video-player-speed-2.0" onclick="setSpeed(2)">2.0x</label>
+      </div>
+          <!--ここまでlooper-->
+          <a href="index.html">to index</a>
+      </div><!--モニターのサイズはflip&loopともにここがROOT END-->
+  </body>
+
+</html>
