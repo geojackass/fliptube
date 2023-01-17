@@ -1,5 +1,4 @@
 $(function() {
-
     $("input,#input").change(function() {
         y_flip();
     });
@@ -11,8 +10,11 @@ $(function() {
 });
 
 function y_flip() {
+
     var input_txt = $("#url").val();
+//    var input_txt = $("youtube-video-url").val();
     var output_txt = input_txt;
+
 
     var mat = '';
     mat = input_txt.match(/[\/?=]([a-zA-Z0-9_\-]{11})[&\?]?/);
@@ -33,6 +35,7 @@ function html(a, b, c) {
 
     $('#_' + a + ' div').empty().append(img);
     $('#_' + a + ' input').val('http://img.youtube.com/vi/' + b + '/' + a + '.jpg');
+
 
     img.load(function() {
         w = img.width();

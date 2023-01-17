@@ -1,3 +1,7 @@
+/** ###########################################*/
+/**CSS flip start*/
+/** ###########################################*/
+
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed,figure, figcaption, footer, header, hgroup,menu, nav, output, ruby, section, summary,time, mark, audio, video {margin: 0;padding: 0;border: 0;font-style:normal;font-weight: normal;font-size: 100%;vertical-align: baseline;}
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
 *{letter-spacing: 0;}
@@ -547,4 +551,113 @@ nav{
 	border-right: 4px solid transparent;
 	border-bottom: 6px solid transparent;
 	border-left: 4px solid transparent;
+}
+
+/** ###########################################*/
+/** ###########################################*/
+/** ###############CSS fli end#################*/
+/** ###########################################*/
+/** ###########################################*/
+
+
+
+#youtube-video-url{
+    width:100%;
+    padding: 10px;
+    line-height: 50px;
+    height: 50px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.export-area{
+    background-size: auto auto;
+    background-color: rgba(215, 215, 215, 1);
+    background-image: repeating-linear-gradient(135deg, transparent, transparent 10px, rgba(230, 230, 230, 1) 10px, rgba(230, 230, 230, 1) 20px );
+    padding: 10px;
+    height: 150px;
+    border-radius: 8px;
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+
+.export-area p {
+    text-align: center;
+    margin: 1.75rem auto;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.error{
+    color: red;
+}
+
+input[type=radio].button{
+    display: none;
+}
+
+input[type="button"]{
+    text-transform: none;
+    font-weight: normal;
+    color: #ffffff;
+    background-color: #888888;
+    border: solid 1px #888888;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 4px;
+    padding: 10px;
+}
+
+.button-wrapper input[type="button"],
+.button-wrapper input[type="radio"].button + label {
+    display: block;
+    flex-shrink: 0;
+    text-transform: none;
+    font-weight: normal;
+    color: #ffffff;
+    background-color: #888888;
+    border: solid 1px #888888;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 4px;
+    padding: 10px;
+}
+
+.speed-button-wrapper input[type="radio"].button + label {
+    width: calc(100% / 4 - 4px);
+}
+
+@media only screen and (min-width: 751px){
+    .speed-button-wrapper input[type="radio"].button + label {
+        width: calc(100% / 8 - 4px);
+    }
+}
+
+input[type="radio"].button:checked + label {
+    background: #ffffff;
+    color: #888888;
+    border-color: #888888;
+}
+
+.button-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.time-button-wrapper input[type="button"]{
+    width: calc(100% / 6 - 4px);
+}
+
+hr{
+	border: 1px solid #cccccc;
+	margin: 5px 0;
+    height: 0;
 }
