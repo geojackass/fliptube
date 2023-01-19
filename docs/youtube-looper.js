@@ -263,7 +263,7 @@ function getVideoId() {
         return null;
     } else {
         console.log("4");
-        elm_youtube_video_url_error.innerHTML = '<p class="error">甘シュワな恋心に溺れてみたい<br>微炭酸マリンブルー<br>https://youtu.be/XeabyV6wqUU</p>'; //改行禁止
+        elm_youtube_video_url_error.innerHTML = '<p class="error">甘シュワな恋心に溺れてみたい<br>微炭酸マリンブルー<br>https://youtu.be/FTfBe9NPzyU</p>'; //改行禁止
         var str = '<p class="default">ここにサネイルの画像が表示されます</p>';
         elem.innerHTML = str;
         return null;
